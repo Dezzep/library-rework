@@ -1,0 +1,23 @@
+POST http://localhost:3001/api/library
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlN1c2FucyIsImlkIjoiNjMwMGRjOWM3ZDk5MGVkNDYwYTA0YzM4IiwiaWF0IjoxNjYxMDAwODk2LCJleHAiOjE2NjEwMDQ0OTZ9.Rak57Zt3fmG8PSUiN6MPWbmwYHu_2WLgdmDBDEMIX6I
+
+{
+  "title": "Susans Story, from middleware",
+  "author": "Susan Ofcourse",
+  "pages":  65,
+  "stars": 33,
+  "userId":"62fbc540b91336d08e9a8e6e"
+}
+###
+GET http://localhost:3001/api/library
+Content-Type: application/json
+
+###
+GET http://localhost:3001/api/library/62f526b5d693ecc75fae3aac
+Content-Type: application/json
+
+###
+DELETE http://localhost:3001/api/library/62ffa3f5109b9016a8bad376
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlN1c2FucyIsImlkIjoiNjMwMGRjOWM3ZDk5MGVkNDYwYTA0YzM4IiwiaWF0IjoxNjYxMDAwODk2LCJleHAiOjE2NjEwMDQ0OTZ9.Rak57Zt3fmG8PSUiN6MPWbmwYHu_2WLgdmDBDEMIX6I
