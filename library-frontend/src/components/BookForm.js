@@ -27,15 +27,8 @@ const BookForm = ({ user, bookSubmitHandler }) => {
 
   if (user) {
     return (
-      <form
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '7em',
-          gap: '.3em',
-        }}
-      >
-        <label>
+      <form>
+        <label className="">
           Title:
           <input
             type={'text'}

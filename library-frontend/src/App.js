@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import loginService from './services/login';
 import BookForm from './components/BookForm';
 import Togglable from './components/Togglable';
+import '../src/index.css';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -49,7 +50,7 @@ const App = () => {
 
   const bookSubmitHandler = async (e, title, author, pages) => {
     e.preventDefault();
-    if (title.length < 3){
+    if (title.length < 3) {
       setErrorMessage('Title must be atleast 3 characters.');
       setTimeout(() => {
         setErrorMessage(null);
@@ -74,7 +75,7 @@ const App = () => {
 
   const editStars = async (id, title, author, pages, stars, user) => {
     try {
-      await libService.update(id, { title, author, pages, stars, user });
+      await libService.update(id, { title:title, author:author, pages, stars, user });
       getSetAndSort();
     } catch (exception) {
       console.log('error adding like');
@@ -129,14 +130,16 @@ const App = () => {
       <h3 style={{ backgroundColor: 'green' }}>{message}</h3>
 
       <h2>books</h2>
-      {books.map((book) => (
-        <Library
-          key={book.id}
-          book={book}
-          editStars={editStars}
-          deleteBook={deleteBook}
-        />
-      ))}
+      <div className="grid lg:grid-cols-2">
+        {books.map((book) => (
+          <Library
+            key={book.id}
+            book={book}
+            editStars={editStars}
+            deleteBook={deleteBook}
+          />
+        ))}
+      </div>
     </div>
   );
 };

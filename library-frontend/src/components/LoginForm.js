@@ -15,12 +15,7 @@ const LoginForm = ({ loginFormSubmit, user }) => {
   if (user === null) {
     return (
       <form
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '7em',
-          gap: '.3em',
-        }}
+        
       >
         <label>
           UserName:
