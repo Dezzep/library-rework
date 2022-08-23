@@ -16,68 +16,13 @@ const Library = ({ book, editStars, deleteBook }) => {
 
   return (
     <div className="flex flex-col bg-neutral h-96 items-center justify-center mx-auto mt-6   w-8/12">
+      <h3 className="text-2xl text-primary">{book.title} </h3>
+      <p className="mb-4">{book.author}</p>
+      
       <Ratings book={book} editStars={editStars}></Ratings>
+      <p className='mt-4'>{book.pages} pages</p>      
 
-      <h3 className="text-xl">{book.title} </h3>
-      <p className="text-lg">{book.author}</p>
 
-      {/* <div className="rating rating-lg rating-half">
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="rating-hidden"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-1"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-2"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-1"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-2"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-1"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-2"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-1"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-2"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-1"
-          />
-          <input
-            type="radio"
-            name={`rating-10${book.title}`}
-            className="bg-green-500 mask mask-star-2 mask-half-2"
-          /> */}
-      {/* </div> */}
     </div>
     //       {/* <div style={showDetails}> */}
     //         {/* <div>

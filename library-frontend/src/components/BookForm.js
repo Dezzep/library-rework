@@ -16,7 +16,7 @@ const BookForm = ({ user, bookSubmitHandler }) => {
   };
 
   const handleSubmit = (e, title, author, url) => {
-    bookSubmitHandler(e, title, author, url);
+    bookSubmitHandler(e, title, author, url,);
 
     if (title.length >= 3) {
       setTitle('');

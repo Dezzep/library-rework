@@ -45,7 +45,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-1"
+        className="bg-secondary mask mask-star-2 mask-half-1"
         defaultChecked={starsChecked(1)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -61,7 +61,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-2"
+        className="bg-secondary mask mask-star-2 mask-half-2"
         defaultChecked={starsChecked(2)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -77,7 +77,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-1"
+        className="bg-secondary mask mask-star-2 mask-half-1"
         defaultChecked={starsChecked(3)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -93,7 +93,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-2"
+        className="bg-secondary mask mask-star-2 mask-half-2"
         defaultChecked={starsChecked(4)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -109,7 +109,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-1"
+        className="bg-secondary mask mask-star-2 mask-half-1"
         defaultChecked={starsChecked(5)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -125,7 +125,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-2"
+        className="bg-secondary mask mask-star-2 mask-half-2"
         defaultChecked={starsChecked(6)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -141,7 +141,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-1"
+        className="bg-secondary mask mask-star-2 mask-half-1"
         defaultChecked={starsChecked(7)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -157,7 +157,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-2"
+        className="bg-secondary mask mask-star-2 mask-half-2"
         defaultChecked={starsChecked(8)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -173,7 +173,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-1"
+        className="bg-secondary mask mask-star-2 mask-half-1"
         defaultChecked={starsChecked(9)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -189,7 +189,7 @@ const Ratings = ({ book, editStars }) => {
       <input
         type="radio"
         name={`rating-10${book.title}`}
-        className="bg-green-500 mask mask-star-2 mask-half-2"
+        className="bg-secondary mask mask-star-2 mask-half-2"
         defaultChecked={starsChecked(10)}
         onClick={() =>
           changeStateAndUpdateDB(

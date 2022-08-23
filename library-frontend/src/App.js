@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Library from './components/Library';
 import libService from './services/library';
 import LoginForm from './components/LoginForm';
@@ -20,12 +20,18 @@ const App = () => {
     localStorage.removeItem('loggedLibUser');
   };
 
-  const getSetAndSort = async () => {
+  const getSetAndSort = useCallback(async () => {
     // get all books sort them by most likes, then set them to state as an array (of objects).
     const allBooks = await libService.getAll();
-    await allBooks.sort((a, b) => a.stars - b.stars).reverse(); //most likes is displayed first.
-    setBooks(allBooks);
-  };
+
+    if (user) {
+      const usersBooks = allBooks.filter((book) => book.username === user.name);
+
+      await usersBooks.reverse(); //newest to oldest
+    
+    setBooks(usersBooks);
+    }
+  });
 
   const loginFormSubmit = async (event, username, password) => {
     event.preventDefault();
@@ -75,7 +81,13 @@ const App = () => {
 
   const editStars = async (id, title, author, pages, stars, user) => {
     try {
-      await libService.update(id, { title:title, author:author, pages, stars, user });
+      await libService.update(id, {
+        title: title,
+        author: author,
+        pages,
+        stars,
+        user,
+      });
       getSetAndSort();
     } catch (exception) {
       console.log('error adding like');
@@ -95,7 +107,7 @@ const App = () => {
 
   useEffect(() => {
     getSetAndSort();
-  }, []);
+  }, [user, getSetAndSort]);
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedLibUser');
     if (loggedUserJSON) {

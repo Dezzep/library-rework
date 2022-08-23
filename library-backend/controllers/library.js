@@ -29,6 +29,7 @@ libRouter.post('/', async (request, response, next) => {
     date: new Date(),
     stars: body.stars,
     user: user._id,
+    username: user.name,
   });
   const savedBook = await book.save();
   user.books = user.books.concat(savedBook._id);
