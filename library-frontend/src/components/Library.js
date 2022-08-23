@@ -11,7 +11,10 @@ const Library = ({ book, editStars, deleteBook }) => {
       <p className="mt-4">{book.pages} pages</p>
       <div className="w-3/4 flex mt-8">
         <ReadStatus editReadStatus={editStars} book={book} />
-        <button className="btn bg-error text-warning-content hover:bg-warning ml-auto ">
+        <button
+          onClick={() => deleteBook(book.id, book.title)}
+          className="btn bg-error text-warning-content hover:bg-warning ml-auto "
+        >
           Delete
         </button>
       </div>

@@ -103,8 +103,8 @@ const App = () => {
     }
   };
 
-  const deleteBook = async (id) => {
-    if (window.confirm('do you really want to delete this?')) {
+  const deleteBook = async (id, name) => {
+    if (window.confirm(`Do you really want to delete ${name}?`)) {
       try {
         await libService.remove(id);
         getSetAndSort();
