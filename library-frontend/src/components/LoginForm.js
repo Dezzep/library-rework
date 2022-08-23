@@ -14,28 +14,30 @@ const LoginForm = ({ loginFormSubmit, user }) => {
 
   if (user === null) {
     return (
-      <form
+      <form className='flex flex-col w-96 gap-6 mt-64 p-6 bg-info/40 rounded-3xl mx-auto'
         
       >
         <label>
-          UserName:
+          <p className='text-secondary mb-1'>UserName:</p>
           <input
             type={'text'}
             name={'username'}
             value={username}
             onChange={handleUsernameChange}
+            className='input input-bordered input-info w-full max-w-xs'
           />
         </label>
         <label>
-          Password:
+          <p className='text-secondary mb-1'>Password:</p>
           <input
             type={'password'}
             name={'password'}
             value={password}
             onChange={handlePasswordChange}
+            className='input input-bordered input-info w-full max-w-xs'
           />
         </label>
-        <button onClick={(e) => loginFormSubmit(e, username, password)}>
+        <button className='btn btn-primary' onClick={(e) => loginFormSubmit(e, username, password)}>
           Login
         </button>
       </form>
