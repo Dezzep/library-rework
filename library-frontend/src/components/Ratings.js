@@ -9,13 +9,13 @@ const Ratings = ({ book, editStars }) => {
     author,
     pages,
     stars,
-    user
+    user,
+    readStatus
   ) => {
     setStarCount(stars);
-    editStars(bookid, title, author, pages, stars, user);
+    editStars(bookid, title, author, pages, stars, user, readStatus);
   };
 
-  
   useEffect(() => {
     if (book.stars !== undefined) {
       setStarCount(book.stars);
@@ -37,7 +37,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             0,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
         defaultChecked={starsChecked(0)}
@@ -54,7 +55,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             1,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -70,7 +72,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             2,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -86,7 +89,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             3,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -102,7 +106,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             4,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -118,7 +123,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             5,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -134,7 +140,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             6,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -150,7 +157,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             7,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -166,7 +174,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             8,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -182,7 +191,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             9,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />
@@ -198,7 +208,8 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             10,
-            book.user.id
+            book.user.id,
+            book.readStatus
           )
         }
       />

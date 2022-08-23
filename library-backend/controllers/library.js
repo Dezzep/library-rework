@@ -6,7 +6,10 @@ const jwt = require('jsonwebtoken');
 // GET ALL DATA FROM MONGODB/library
 
 libRouter.get('/', async (request, response) => {
-  const library = await Lib.find({}).populate('user', { username: 1, name: 1 });
+  const library = await Lib.find({}).populate('user', {
+    username: 1,
+    name: 1,
+  });
   response.json(library);
 });
 
@@ -30,6 +33,7 @@ libRouter.post('/', async (request, response, next) => {
     stars: body.stars,
     user: user._id,
     username: user.name,
+    readStatus: false,
   });
   const savedBook = await book.save();
   user.books = user.books.concat(savedBook._id);
@@ -60,6 +64,8 @@ libRouter.put('/:id', async (request, response) => {
     pages: body.pages,
     stars: body.stars,
     user: body.user,
+    username: body.user.name,
+    readStatus: body.readStatus
   };
   const toUpdate = await Lib.findByIdAndUpdate(request.params.id, book, {
     new: true,

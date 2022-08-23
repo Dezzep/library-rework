@@ -14,6 +14,7 @@ const bookSchema = new mongoose.Schema({
     ref: 'User',
   },
   username: { type: String },
+  readStatus: { type: Boolean },
 });
 
 bookSchema.set('toJSON', {
