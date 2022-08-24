@@ -12,6 +12,7 @@ const App = () => {
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const [message, setMessage] = useState(null);
+  const [bookToRead, setBookToRead] = useState(null);
 
   const bookFormRef = useRef();
 
@@ -113,6 +114,22 @@ const App = () => {
       }
     }
   };
+  const selectRandomBook = () => {
+    const unreadBooks = books.filter((book) => !book.readStatus);
+    const bookToReadTimeout = setTimeout(() => {
+      setBookToRead(null)
+    }, 5000)
+
+    if (unreadBooks.length > 0) {
+      const randomBook =
+        unreadBooks[Math.floor(Math.random() * unreadBooks.length)];
+      console.log(randomBook);
+      clearTimeout(bookToReadTimeout())
+      setBookToRead(null)
+      setBookToRead(`you should read ${randomBook.title}`);
+      bookToReadTimeout()
+    }
+  };
 
   useEffect(() => {
     getSetAndSort();
@@ -137,20 +154,35 @@ const App = () => {
   }
   return (
     <div>
-      <h2>books</h2>
-      <div>
-        {user.name} logged in <button onClick={logOut}>Log Out</button>
+      <div className="flex px-4 py-1">
+        <h1 className="text-3xl  font-bold">Books4Bem</h1>
+        <div className="ml-auto flex flex-col items-end gap-2 mr-4 ">
+          <p className="font-bold">{user.name} </p>
+          <button
+            className="btn btn-sm rounded-3xl bg-error hover:btn-warning text-error-content"
+            onClick={logOut}
+          >
+            Log Out
+          </button>
+          <button
+            onClick={selectRandomBook}
+            className="btn btn-sm rounded-3xl btn-info hover:btn-secondary"
+          >
+            Random Book
+          </button>
+          {bookToRead ? <p>{bookToRead}</p> : null}
+        </div>
       </div>
-      <Togglable buttonLabel={'new book'} ref={bookFormRef}>
-        <h2>create new</h2>
-        <BookForm user={user} bookSubmitHandler={bookSubmitHandler} />
-        <h3 style={{ color: 'red', backgroundColor: '#3f3f3f' }}>
-          {errorMessage}
-        </h3>
-      </Togglable>
-      <h3 style={{ backgroundColor: 'green' }}>{message}</h3>
+      <div className="flex justify-center">
+        <Togglable buttonLabel={'new book'} ref={bookFormRef}>
+          <BookForm user={user} bookSubmitHandler={bookSubmitHandler} />
+          <h3 style={{ color: 'red', backgroundColor: '#3f3f3f' }}>
+            {errorMessage}
+          </h3>
+        </Togglable>
+        <h3 style={{ backgroundColor: 'green' }}>{message}</h3>
+      </div>
 
-      <h2>books</h2>
       <div className="grid lg:grid-cols-2">
         {books.map((book) => (
           <Library

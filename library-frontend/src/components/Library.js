@@ -3,7 +3,7 @@ import ReadStatus from './ReadStatus';
 
 const Library = ({ book, editStars, deleteBook }) => {
   return (
-    <div className="flex flex-col bg-neutral h-96 items-center justify-center mx-auto mt-6   w-8/12">
+    <div className="flex flex-col bg-green-500/10 rounded-3xl h-96 items-center justify-center mx-auto mt-6   w-8/12">
       <h3 className="text-2xl text-primary">{book.title} </h3>
       <p className="mb-4">{book.author}</p>
 
