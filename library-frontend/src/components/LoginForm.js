@@ -61,7 +61,7 @@ const LoginForm = ({ loginFormSubmit, user, signUpFormSubmit }) => {
   if (user === null) {
     if (!displaySignUp) {
       return (
-        <form className="flex flex-col w-96 gap-6 mt-64 p-6 bg-info/40 rounded-3xl mx-auto">
+        <form className="flex flex-col w-96 gap-6 mt-12 p-8 lg:mt-64 bg-info/40 rounded-3xl mx-auto">
           {accountCreated ? (
             <p className="text-green-400 text-center">{accountCreated}</p>
           ) : null}
@@ -103,7 +103,7 @@ const LoginForm = ({ loginFormSubmit, user, signUpFormSubmit }) => {
       );
     } else {
       return (
-        <form className="flex flex-col w-96 gap-6 mt-64 p-6 bg-info/40 rounded-3xl mx-auto">
+        <form className="flex flex-col w-96 gap-6 mt-12 p-8 lg:mt-64 bg-info/40 rounded-3xl mx-auto">
           <button
             onClick={(e) => backToLogin(e)}
             className="btn w-1/2 hover:btn-primary"
