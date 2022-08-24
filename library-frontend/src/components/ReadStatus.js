@@ -27,9 +27,7 @@ const ReadStatus = ({ editReadStatus, book }) => {
   return (
     <button
       onClick={toggleReadStatus}
-      className={`btn  ${
-        readStatus ? 'btn-info hover:btn-error' : 'btn-accent'
-      }`}
+      className={`btn  ${readStatus ? 'btn-info' : 'btn-accent'}`}
     >
       {readStatus ? 'Finished' : 'Not Read'}
     </button>

@@ -135,9 +135,18 @@ const App = () => {
       clearTimeout(bookToReadTimeout);
       const randomBook =
         unreadBooks[Math.floor(Math.random() * unreadBooks.length)];
-      setBookToRead(`you should read ${randomBook.title}`);
+      setBookToRead(
+        <p className="text-center">
+          you should read: <br></br>
+          {randomBook.title}
+        </p>
+      );
     } else {
-      setBookToRead("It looks like you've already read all your books!");
+      setBookToRead(
+        <p className="text-center">
+          It looks like you've already read all of your books!
+        </p>
+      );
     }
   };
 
@@ -174,21 +183,23 @@ const App = () => {
     <div>
       <div className="flex px-4 py-1">
         <h1 className="text-3xl  font-bold">Books4Bem</h1>
-        <div className="ml-auto flex flex-col items-end gap-2 mr-4 ">
+        <div className="ml-auto flex flex-col items-end gap-2 mr-4 mt-1 ">
           <p className="font-bold">{user.name} </p>
           <button
-            className="btn btn-sm rounded-3xl bg-error hover:btn-warning text-error-content"
+            className="btn btn-sm rounded-3xl bg-error hover:btn-warning text-error-content mt-4"
             onClick={logOut}
           >
             Log Out
           </button>
-          <button
-            onClick={selectRandomBook}
-            className="btn btn-sm rounded-3xl btn-info hover:btn-secondary"
-          >
-            Random Book
-          </button>
-          {bookToRead ? <p>{bookToRead}</p> : null}
+          <div className="mb-12 lg:mb:0 flex flex-col items-end">
+            <button
+              onClick={selectRandomBook}
+              className="btn btn-sm rounded-3xl btn-info hover:btn-secondary"
+            >
+              Random Book
+            </button>
+            {bookToRead ? <div>{bookToRead}</div> : null}
+          </div>
         </div>
       </div>
       <div className="flex justify-center">

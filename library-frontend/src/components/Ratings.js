@@ -25,11 +25,11 @@ const Ratings = ({ book, editStars }) => {
   const starsChecked = (n) => (n === book.stars ? true : false);
 
   return (
-    <div className="rating rating-lg rating-half">
+    <div className="rating rating-lg">
       <input
         type="radio"
-        name={`rating-10${book.title}`}
-        className="rating-hidden"
+        name={`rating-4${book.title}`}
+        className="mask mask-star-2 bg-green-500"
         onClick={() =>
           changeStateAndUpdateDB(
             book.id,
@@ -45,8 +45,8 @@ const Ratings = ({ book, editStars }) => {
       />
       <input
         type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-1"
+        name={`rating-4${book.title}`}
+        className="mask mask-star-2 bg-green-500"
         defaultChecked={starsChecked(1)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -62,8 +62,8 @@ const Ratings = ({ book, editStars }) => {
       />
       <input
         type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-2"
+        name={`rating-4${book.title}`}
+        className="mask mask-star-2 bg-green-500"
         defaultChecked={starsChecked(2)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -79,8 +79,8 @@ const Ratings = ({ book, editStars }) => {
       />
       <input
         type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-1"
+        name={`rating-4${book.title}`}
+        className="mask mask-star-2 bg-green-500"
         defaultChecked={starsChecked(3)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -96,8 +96,8 @@ const Ratings = ({ book, editStars }) => {
       />
       <input
         type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-2"
+        name={`rating-4${book.title}`}
+        className="mask mask-star-2 bg-green-500"
         defaultChecked={starsChecked(4)}
         onClick={() =>
           changeStateAndUpdateDB(
@@ -106,108 +106,6 @@ const Ratings = ({ book, editStars }) => {
             book.author,
             book.pages,
             4,
-            book.user.id,
-            book.readStatus
-          )
-        }
-      />
-      <input
-        type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-1"
-        defaultChecked={starsChecked(5)}
-        onClick={() =>
-          changeStateAndUpdateDB(
-            book.id,
-            book.title,
-            book.author,
-            book.pages,
-            5,
-            book.user.id,
-            book.readStatus
-          )
-        }
-      />
-      <input
-        type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-2"
-        defaultChecked={starsChecked(6)}
-        onClick={() =>
-          changeStateAndUpdateDB(
-            book.id,
-            book.title,
-            book.author,
-            book.pages,
-            6,
-            book.user.id,
-            book.readStatus
-          )
-        }
-      />
-      <input
-        type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-1"
-        defaultChecked={starsChecked(7)}
-        onClick={() =>
-          changeStateAndUpdateDB(
-            book.id,
-            book.title,
-            book.author,
-            book.pages,
-            7,
-            book.user.id,
-            book.readStatus
-          )
-        }
-      />
-      <input
-        type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-2"
-        defaultChecked={starsChecked(8)}
-        onClick={() =>
-          changeStateAndUpdateDB(
-            book.id,
-            book.title,
-            book.author,
-            book.pages,
-            8,
-            book.user.id,
-            book.readStatus
-          )
-        }
-      />
-      <input
-        type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-1"
-        defaultChecked={starsChecked(9)}
-        onClick={() =>
-          changeStateAndUpdateDB(
-            book.id,
-            book.title,
-            book.author,
-            book.pages,
-            9,
-            book.user.id,
-            book.readStatus
-          )
-        }
-      />
-      <input
-        type="radio"
-        name={`rating-10${book.title}`}
-        className="bg-secondary mask mask-star-2 mask-half-2"
-        defaultChecked={starsChecked(10)}
-        onClick={() =>
-          changeStateAndUpdateDB(
-            book.id,
-            book.title,
-            book.author,
-            book.pages,
-            10,
             book.user.id,
             book.readStatus
           )
