@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Library from './components/Library';
 import libService from './services/library';
+import signUpService from './services/createAccout';
 import LoginForm from './components/LoginForm';
 import loginService from './services/login';
 import BookForm from './components/BookForm';
@@ -11,7 +12,6 @@ const App = () => {
   const [books, setBooks] = useState([]);
   const [user, setUser] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [message, setMessage] = useState(null);
   const [bookToRead, setBookToRead] = useState(null);
 
   const bookFormRef = useRef();
@@ -54,6 +54,21 @@ const App = () => {
       }, 5000);
     }
   };
+  const signUpFormSubmit = async (event, username, name, password) => {
+    event.preventDefault();
+    try {
+      const signUp = await signUpService.createAccount({
+        username,
+        name,
+        password,
+      });
+    } catch (exception) {
+      setErrorMessage('That username is already taken');
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 5000);
+    }
+  };
 
   const bookSubmitHandler = async (e, title, author, pages) => {
     e.preventDefault();
@@ -67,10 +82,6 @@ const App = () => {
         await libService.create({ title, author, pages });
         getSetAndSort();
         bookFormRef.current.toggleVisibility();
-        setMessage(`${title} by ${author} has been added`);
-        setTimeout(() => {
-          setMessage(null);
-        }, 5000);
       } catch (exception) {
         setErrorMessage(`'please fill out required forms'`);
         setTimeout(() => {
@@ -124,7 +135,6 @@ const App = () => {
       clearTimeout(bookToReadTimeout);
       const randomBook =
         unreadBooks[Math.floor(Math.random() * unreadBooks.length)];
-      console.log(randomBook);
       setBookToRead(`you should read ${randomBook.title}`);
     } else {
       setBookToRead("It looks like you've already read all your books!");
@@ -146,9 +156,17 @@ const App = () => {
   if (!user) {
     return (
       <div>
-        <LoginForm loginFormSubmit={loginFormSubmit} user={user} />
+        <h1 className="text-3xl px-4 py-1  font-bold">Books4Bem</h1>
 
-        <h3 style={{ color: 'red' }}>{errorMessage}</h3>
+        <LoginForm
+          loginFormSubmit={loginFormSubmit}
+          user={user}
+          signUpFormSubmit={signUpFormSubmit}
+        />
+
+        <h3 style={{ color: 'red' }} className="text-center">
+          {errorMessage}
+        </h3>
       </div>
     );
   }
@@ -174,13 +192,12 @@ const App = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <Togglable buttonLabel={'new book'} ref={bookFormRef}>
+        <Togglable buttonLabel={'add a book'} ref={bookFormRef}>
           <BookForm user={user} bookSubmitHandler={bookSubmitHandler} />
           <h3 style={{ color: 'red', backgroundColor: '#3f3f3f' }}>
             {errorMessage}
           </h3>
         </Togglable>
-        <h3 style={{ backgroundColor: 'green' }}>{message}</h3>
       </div>
 
       <div className="grid lg:grid-cols-2">
