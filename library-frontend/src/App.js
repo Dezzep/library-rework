@@ -72,7 +72,7 @@ const App = () => {
           setMessage(null);
         }, 5000);
       } catch (exception) {
-        setErrorMessage('please fill out required forms');
+        setErrorMessage(`'please fill out required forms'`);
         setTimeout(() => {
           setErrorMessage(null);
         }, 5000);
@@ -117,17 +117,17 @@ const App = () => {
   const selectRandomBook = () => {
     const unreadBooks = books.filter((book) => !book.readStatus);
     const bookToReadTimeout = setTimeout(() => {
-      setBookToRead(null)
-    }, 5000)
+      setBookToRead(null);
+    }, 5000);
 
     if (unreadBooks.length > 0) {
+      clearTimeout(bookToReadTimeout);
       const randomBook =
         unreadBooks[Math.floor(Math.random() * unreadBooks.length)];
       console.log(randomBook);
-      clearTimeout(bookToReadTimeout())
-      setBookToRead(null)
       setBookToRead(`you should read ${randomBook.title}`);
-      bookToReadTimeout()
+    } else {
+      setBookToRead("It looks like you've already read all your books!");
     }
   };
 
