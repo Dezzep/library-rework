@@ -191,18 +191,17 @@ const App = () => {
           >
             Log Out
           </button>
-          <div className="mb-12 lg:mb:0 flex flex-col items-end">
-            <button
-              onClick={selectRandomBook}
-              className="btn btn-sm rounded-3xl btn-info hover:btn-secondary"
-            >
-              Random Book
-            </button>
-            {bookToRead ? <div>{bookToRead}</div> : null}
-          </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex flex-col items-center">
+        {bookToRead ? <div className="mb-2">{bookToRead}</div> : null}
+
+        <button
+          onClick={selectRandomBook}
+          className="btn btn-info hover:bg-blue-400 mb-2 mt-2"
+        >
+          Random Book To Read
+        </button>
         <Togglable buttonLabel={'add a book'} ref={bookFormRef}>
           <BookForm user={user} bookSubmitHandler={bookSubmitHandler} />
           <h3 style={{ color: 'red', backgroundColor: '#3f3f3f' }}>
@@ -211,7 +210,7 @@ const App = () => {
         </Togglable>
       </div>
 
-      <div className="grid lg:grid-cols-2">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-3 xl:px-6 xl:ml-8 xl:mr-8">
         {books.map((book) => (
           <Library
             key={book.id}
